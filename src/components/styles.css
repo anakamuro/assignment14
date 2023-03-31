@@ -1,0 +1,64 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+
+.address {
+    margin-top: 10px;
+}
+#confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 0 auto;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+}
+button.btn-close {
+    position: relative;
+    left: 120%;
+    top: -10px;
+    width: 20px !important;
+    height: 20px !important;
+    position: relative;
+}
+
+button.btn-close:after {
+    text-align: center;
+    vertical-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\2716"; /* use the hex value here... */
+    font-size: 10px; 
+    line-height: 0px;
+    text-align: center;
+    transform: translateY(50%);
+}
+.dark {
+    opacity: 0.7;
+    background-color: black;
+}
