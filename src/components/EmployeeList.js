@@ -1,9 +1,10 @@
 import "./styles.css";
-import {useState} from "react"
+import { useEffect, useState } from "react"
 import DataTable from "react-data-table-component";
-import data from './data.json';
+// import data from "./data.json"
 
 export default function EmployeeList() {
+
   const [pageSize, setPageSize] = useState(5)
   /*
    const data = [
@@ -204,70 +205,80 @@ export default function EmployeeList() {
   const columns = [
     {
       name: 'First Name',
-      selector: row => row.firstName, 
+      selector: row => row.firstName,
       sortable: true
-    }, 
+    },
     {
       name: 'Last Name',
-      selector: row => row.lastName, 
+      selector: row => row.lastName,
       sortable: true
-    }, 
+    },
     {
       name: 'Start Date',
-      selector: row => row.startDate, 
+      selector: row => row.startDate,
       sortable: true
-    }, 
+    },
     {
       name: 'Department',
-      selector: row => row.department, 
+      selector: row => row.department,
       sortable: true
-    }, 
+    },
     {
       name: 'Date of Birth',
-      selector: row => row.dateOfBirth, 
+      selector: row => row.dateOfBirth,
       sortable: true
-    }, 
+    },
     {
       name: 'Street',
-      selector: row => row.street, 
+      selector: row => row.street,
       sortable: true
-    },   {
+    }, {
       name: 'City',
-      selector: row => row.city, 
+      selector: row => row.city,
       sortable: true
-    },   {
+    }, {
       name: 'State',
-      selector: row => row.state, 
+      selector: row => row.state,
       sortable: true
-    }, 
+    },
     {
       name: 'Zip Code',
-      selector: row => row.zipCode, 
+      selector: row => row.zipCode,
       sortable: true
-    }, 
+    },
   ]
-  const [records, setRecords] = useState(data);
+  const [records, setRecords] = useState([]);
 
-  function handleFilter(event){
-    const newData = data.filter(row => {
-      return row.firstName?.toLowerCase().includes(event.target.value?.toLowerCase())
+  useEffect(() => {
+    fetch("http://localhost:3003/employees").then((res) => res.json()).then((data) => {
+      console.log(data);
+      setRecords(data)
     })
-    setRecords(newData)
-  }
+  }, [])
+
+  // function handleFilter(event) {
+  //   const newData = data.filter(row => {
+  //     return row.firstName?.toLowerCase().includes(event.target.value?.toLowerCase())
+  //   })
+  //   setRecords(newData)
+  // }
+
+
   return (
     <div className="container mt-5">
       <div id="employee-div" className="container">
-            <h3>Current Employees</h3>
-            <div className="text-end"><input type="text" onChange={handleFilter}/></div>
-            <DataTable
-               columns={columns}
-               data={records}
-               selectableRows
-               pagination
-               ></DataTable>
-            
-            <a href="/">Home</a>
-        </div>
+        <h3>Current Employees</h3>
+        <div className="text-end"><input type="text"  /></div>
+        <DataTable
+          columns={columns}
+          data={records}
+          selectableRows
+          pagination
+          expandableRows
+        ></DataTable>
+
+        <a href="/">Home</a>
+      </div>
     </div>
   );
 }
