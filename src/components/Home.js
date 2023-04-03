@@ -1,15 +1,11 @@
 import "./styles.css";
 import React, { useState } from "react"
-//import DatePicker from "react-multi-date-picker"
 import 'react-datepicker/dist/react-datepicker.css'
 import DatePicker from "react-datepicker";
-//import Modal from "react-modal"
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Modal"
-//import { Modal } from "rsuite";
 import { nanoid } from "nanoid"
-// import data from './data.json';
-import EmployeeList from "./EmployeeList";
+
 
 
 function Home() {
@@ -28,9 +24,9 @@ function Home() {
   const [street, setStreet] = useState('')
   const [zipCode, setZipCode] = useState("")
   const [blog, setBlog] = useState("")
-  const [isPending, setIsPending] = useState(false)
+ 
 
-  const [dateValue, setDateValue] = useState(new Date())
+ // const [dateValue, setDateValue] = useState(new Date())
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -94,23 +90,10 @@ function Home() {
             console.log(formattedDate);
             setDateOfBirth(date)
           }} dateFormat="yyyy/MM/dd"
-          // isClearable
-          // showYearDropdown
-          // scrollableMonthYearDropdown
+         
           />
 
-          {/* <DatePicker value={dateValue} onChange={setDateValue} /> */}
-          {/* <DatePicker
-            selected={selectedDate}
-            id="date-of-birth"
-            value={dateOfBirth}
-            onChange={date => setSelectedDate(date)}
-            dateFormat="yyyy/MM/dd"
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            name="dateOfBirth"
-            onInput={(e) => setDateOfBirth(e.target.value)} /> */}
+         
 
           <label htmlFor="start-date">Start Date</label>
           <DatePicker selected={startDate} onChange={(date) => {
@@ -121,17 +104,7 @@ function Home() {
             // isClearable
             showYearDropdown
             scrollableMonthYearDropdown />
-          {/* <DatePicker selected={selectedDate}
-            id="start-date"
-            className={"myClass " + (show ? "dark" : null)}
-            onChange={date => setSelectedDate(date)}
-            dateFormat="yyyy/MM/dd"
-            value={startDate}
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            name="startDate"
-            onInput={(e) => setStartDate(e.target.value)} /> */}
+          
 
 
           <fieldset className="address">
@@ -246,7 +219,6 @@ function Home() {
         </form>
 
         <button show={false} onClick={handleSubmit}>Save</button>
-        {/* <button disabled show={false} onClick={handleShow}>Saving..</button> */}
       </div>
       <Modal show={show} onHide={handleClose} backdrop="false" id="confirmation" >
         <Modal.Header closeButton className="close" >

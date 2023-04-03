@@ -50,30 +50,6 @@
     },
     {
       "id": 5,
-      "firstName": "Taro",
-      "lastName": "Yamada",
-      "startDate": "12/27/2003",
-      "department": "Marketing",
-      "dateOfBirth": "4/17/1970",
-      "street": "Valley Street",
-      "city": "San Francisco",
-      "state": "California",
-      "zipCode": "22445"
-    },
-    {
-      "id": 5,
-      "firstName": "Lisa",
-      "lastName": "Hamberger",
-      "startDate": "10/27/2008",
-      "department": "Marketing",
-      "dateOfBirth": "4/27/1976",
-      "street": "Beach Street",
-      "city": "Tokyo",
-      "state": "Tokyo",
-      "zipCode": "30990"
-    },
-    {
-      "id": 5,
       "firstName": "Lisa",
       "lastName": "Hamberger",
       "startDate": "10/27/2008",
@@ -295,6 +271,32 @@
       "blog": "",
       "street": "14 Moseley Street #1 Dorchester MA 02125",
       "zipCode": "23455"
+    },
+    {
+      "id": "Nhb2bnw6cpxKKdbIHi_ak",
+      "firstName": "John",
+      "lastName": "Doe",
+      "dateOfBirth": "3/4/2023",
+      "department": "Engineering",
+      "state": "New York",
+      "city": "New York",
+      "startDate": "3/4/2023",
+      "blog": "",
+      "street": "Dorchester",
+      "zipCode": "02999"
+    },
+    {
+      "id": "PdnwzjYK-3XzMVNBOcmTL",
+      "firstName": "",
+      "lastName": "",
+      "dateOfBirth": "3/4/2023",
+      "department": "",
+      "state": "",
+      "city": "",
+      "startDate": "3/4/2023",
+      "blog": "",
+      "street": "",
+      "zipCode": ""
     }
   ]
 }
