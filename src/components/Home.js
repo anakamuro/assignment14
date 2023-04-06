@@ -5,15 +5,18 @@ import DatePicker from "react-datepicker";
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Modal"
 import { nanoid } from "nanoid"
+//import {  history } from "react-router"
+//import { useNavigate } from "react-router-dom";
 
 
 
 function Home() {
-  const [selectedDate, setSelectedDate] = useState(null)
+  //const path = useNavigate()
+  //const [selectedDate, setSelectedDate] = useState(null)
   const [selects, setSelects] = useState();
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [startDate, setStartDate] = useState(new Date())
@@ -30,7 +33,7 @@ function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+   // path('/employee-list')
     const formattedStartDate = startDate.getDate() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getFullYear();
     const formattedBirthDate = dateOfBirth.getDate() + "/" + (dateOfBirth.getMonth() + 1) + "/" + dateOfBirth.getFullYear();
     let id = nanoid()
@@ -45,14 +48,17 @@ function Home() {
     }).then((res) =>
       res.json()
     ).then((data) => {
+     // history.push({pathname: '/employee-list'})
+   //  path('/employee-list')
       console.log(data)
+      
       setShow(true)
     })
   }
-
+  /*
   function toggleShow() {
     setShow(!show)
-  }
+  }*/
 
   return (
     <div className="App">
