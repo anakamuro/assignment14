@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Modal"
 import { nanoid } from "nanoid"
 //import {  history } from "react-router"
 //import { useNavigate } from "react-router-dom";
+import StateDropDown from 'state-drop-down'
 
 
 
@@ -27,15 +28,21 @@ function Home() {
   const [street, setStreet] = useState('')
   const [zipCode, setZipCode] = useState("")
   const [blog, setBlog] = useState("")
- 
 
- // const [dateValue, setDateValue] = useState(new Date())
+  const handleSelect = (event) => {
+    
+    setState(event.target.value)
+  }
+
+  // const [dateValue, setDateValue] = useState(new Date())
 
   const handleSubmit = (event) => {
     event.preventDefault();
-   // path('/employee-list')
-    const formattedStartDate = startDate.getDate() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getFullYear();
-    const formattedBirthDate = dateOfBirth.getDate() + "/" + (dateOfBirth.getMonth() + 1) + "/" + dateOfBirth.getFullYear();
+    // path('/employee-list')
+    const formattedStartDate = (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear();
+
+    const formattedBirthDate = (dateOfBirth.getMonth() + 1) + "/" + dateOfBirth.getDate() + "/" + dateOfBirth.getFullYear();
+    console.log("birth", formattedBirthDate);
     let id = nanoid()
     const blogs = { id, firstName, lastName, dateOfBirth: formattedBirthDate, department, state, city, startDate: formattedStartDate, blog, street, zipCode }
     console.log(blogs)
@@ -48,10 +55,10 @@ function Home() {
     }).then((res) =>
       res.json()
     ).then((data) => {
-     // history.push({pathname: '/employee-list'})
-   //  path('/employee-list')
+      // history.push({pathname: '/employee-list'})
+      //  path('/employee-list')
       console.log(data)
-      
+
       setShow(true)
     })
   }
@@ -92,25 +99,25 @@ function Home() {
 
           <label htmlFor="date-of-birth">Date of Birth</label>
           <DatePicker selected={dateOfBirth} onChange={(date) => {
-            const formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-            console.log(formattedDate);
+
             setDateOfBirth(date)
-          }} dateFormat="yyyy/MM/dd"
-         
+          }}
+            // dateFormat="MM/DD/YYYY"
+            showYearDropdown
+            scrollableMonthYearDropdown
           />
 
-         
+
 
           <label htmlFor="start-date">Start Date</label>
           <DatePicker selected={startDate} onChange={(date) => {
-            const formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-            console.log(formattedDate);
             setStartDate(date)
-          }} dateFormat="yyyy/MM/dd"
-            // isClearable
+          }}
+            // dateFormat="MM/DD/YYYY"
+            //isClearable
             showYearDropdown
             scrollableMonthYearDropdown />
-          
+
 
 
           <fieldset className="address">
@@ -135,7 +142,11 @@ function Home() {
               onChange={(e) => setCity(e.target.value)} />
 
             <label htmlFor="state">State</label>
-            <select
+            <StateDropDown 
+              onChange={handleSelect}
+              name="state"
+              id="state" />
+            {/* <select
               value={selects}
               name="state"
               id="state"
@@ -196,7 +207,7 @@ function Home() {
               <option>West Virginia</option>
               <option>Wisconsin</option>
               <option>Wyoming</option>
-            </select>
+        </select>*/}
             <label htmlFor="zip-code">Zip Code</label>
             <input
               id="zip-code"

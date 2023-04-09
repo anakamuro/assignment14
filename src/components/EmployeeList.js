@@ -1,6 +1,7 @@
 import "./styles.css";
 import { useEffect, useState } from "react"
 import DataTable from "react-data-table-component";
+//import ASSIGN14 from "assignment14b"
 
 
 export default function EmployeeList({ blogs }) {
@@ -62,9 +63,10 @@ export default function EmployeeList({ blogs }) {
     })
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetchData()
-  }, [])
+  }, [])*/
+  fetchData()
 
   function handleFilter(event) {
     console.log("fired");
