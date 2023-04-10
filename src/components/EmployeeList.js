@@ -63,10 +63,10 @@ export default function EmployeeList({ blogs }) {
     })
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     fetchData()
-  }, [])*/
-  fetchData()
+  }, [])
+ 
 
   function handleFilter(event) {
     console.log("fired");
